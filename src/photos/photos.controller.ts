@@ -1,5 +1,5 @@
 import { Controller, Get, Inject, Param } from '@nestjs/common';
-import { IPhotosService } from 'src/domain/photos/photos.service.interface';
+import { IPhotosService } from 'src/photos/photos.service.interface';
 
 @Controller('photos')
 export class PhotosController {

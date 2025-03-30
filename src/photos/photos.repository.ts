@@ -2,8 +2,8 @@ import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { lastValueFrom } from 'rxjs';
-import { Photo } from '../../domain/photos/photo.entity';
-import { IPhotosRepository } from '../../domain/photos/photos.repository.interface';
+import { Photo } from './photo.entity';
+import { IPhotosRepository } from './photos.repository.interface';
 
 @Injectable()
 export class PhotosRepositoryImpl implements IPhotosRepository {

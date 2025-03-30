@@ -18,12 +18,14 @@ export class Company {
 }
 
 export class User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: Address;
-  phone: string;
-  website: string;
-  company: Company;
+  constructor(
+    public id: number,
+    public name: string,
+    public username: string,
+    public email: string,
+    public address: Address | null,
+    public phone: string,
+    public website: string,
+    public company: Company | null,
+  ) {}
 }

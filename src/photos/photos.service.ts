@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { IPhotosService } from 'src/domain/photos/photos.service.interface';
-import { IPhotosRepository } from 'src/domain/photos/photos.repository.interface';
+import { IPhotosRepository } from 'src/photos/photos.repository.interface';
+import { IPhotosService } from 'src/photos/photos.service.interface';
 
 @Injectable()
 export class PhotosService implements IPhotosService {

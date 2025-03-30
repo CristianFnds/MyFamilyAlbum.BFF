@@ -105,3 +105,6 @@ configurar o vs code com :
 "prettier.requireConfig": true,
 "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
+
+Arquitetura Baseada em Módulos
+descrever motivos
