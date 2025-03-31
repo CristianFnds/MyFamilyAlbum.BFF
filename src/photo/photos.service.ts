@@ -23,7 +23,7 @@ export class PhotosServiceImpl implements IPhotosService {
 
     if (!photoExists) {
       throw new UnauthorizedException(
-        'Foto não encontrada ou não pertence ao usuário',
+        'Photo not found or does not belong to the user.',
       );
     }
 

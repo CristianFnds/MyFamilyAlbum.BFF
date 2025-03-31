@@ -18,7 +18,7 @@ export class PhotosController {
   async deletePhoto(@Param('id') albumId: number, @Req() request: Request) {
     const authHeader = request.headers['authorization'];
     if (!authHeader) {
-      throw new UnauthorizedException('Token não encontrado');
+      throw new UnauthorizedException('Token not found');
     }
     return this.photosService.deletePhoto(albumId, authHeader);
   }

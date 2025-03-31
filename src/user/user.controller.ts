@@ -23,7 +23,7 @@ export class UserController {
   async getMyAlbum(@Req() request: Request) {
     const authHeader = request.headers['authorization'];
     if (!authHeader) {
-      throw new UnauthorizedException('Token não encontrado');
+      throw new UnauthorizedException('Token not found');
     }
     return this.userService.getAlbumByUserId(authHeader);
   }

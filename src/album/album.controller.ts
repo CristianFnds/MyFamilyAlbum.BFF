@@ -27,7 +27,7 @@ export class AlbumController {
   ) {
     const authHeader = request.headers['authorization'];
     if (!authHeader) {
-      throw new UnauthorizedException('Token não encontrado');
+      throw new UnauthorizedException('Token not found');
     }
     return this.albumService.deleteAlbum(albumId, authHeader);
   }

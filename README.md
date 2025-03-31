@@ -1,119 +1,117 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Node.js Application with NestJS / Aplicação Node.js com NestJS
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This is a **Node.js** application built using **NestJS**, following a **module-based architecture**. It implements authentication using **JWT** to generate a token upon login, which is later used to validate user permissions.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Esta é uma aplicação **Node.js** desenvolvida com **NestJS**, seguindo uma **arquitetura baseada em módulos**. Foi implementada a autenticação utilizando **JWT** para gerar um token ao logar, que posteriormente é utilizado para validar permissões do usuário.
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 📦 Installation & Running / Instalação e Execução
 
-## Project setup
+### 1️⃣ Clone the Repository / Clonar o Repositório
 
-```bash
-$ npm install
+```sh
+git clone https://github.com/CristianFnds/MyFamilyAlbum.BFF.git
+cd MyFamilyAlbum.BFF
 ```
 
-## Compile and run the project
+### 2️⃣ Install dependencies / Instalar dependências
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+```sh
+npm install
 ```
 
-## Run tests
+### 3️⃣ Configure Environment Variables / Configurar Variáveis de Ambiente
 
-```bash
-# unit tests
-$ npm run test
+Create a `.env` file in the root directory and add:
+Crie um arquivo `.env` na raiz do projeto e adicione:
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+```sh
+BASE_URL=https://jsonplaceholder.typicode.com
+JWT_SECRET=secretyourtokenhere
+JWT_EXPIRATION_TIME="1h"
+PORT=3000
 ```
 
-## Deployment
+### 4️⃣ Configure VS Code with Prettier / Configurar o VS Code com Prettier
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+To ensure consistent code formatting, install **Prettier - Code Formatter** and configure VS Code:
+Para garantir a formatação consistente do código, instale o **Prettier - Code Formatter** e configure o VS Code:
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+1. Install the Prettier extension in VS Code.
+2. Add the following settings to your VS Code configuration (`settings.json`):
 
-```bash
-$ npm install -g mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
-
--- instalar o prettier - code formatter
-
-configurar o vs code com :
+```json
 {
-"editor.formatOnSave": true,
-"prettier.requireConfig": true,
-"editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.formatOnSave": true,
+  "prettier.requireConfig": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
+```
 
-Arquitetura Baseada em Módulos
-foi feito umaimplementação utilizado no jwt para ao logar relaizar o geração do token pára validar permissões do usuario posteriormente.
+---
 
-na tela de login possui validação apenas para achar o email valido que consta na api https://jsonplaceholder.typicode.com/users/
-a senha poder ser qualquer coisa.
+### 5️⃣ Run the Application / Executar a Aplicação
 
-descrever motivos
+```sh
+npm run start:dev
+```
 
-Melhorias criar um middleware para authorization para todas pegar todas as rotas privadas.
+The application will be available at `http://localhost:3000`.
+A aplicação estará disponível em `http://localhost:3000`.
 
-criar uma forma melhor de tratar as exceptions
+---
+
+## 🧪 Running Tests / Executando Testes
+
+To run tests, use:
+Para rodar os testes, use:
+
+```sh
+npx jest
+```
+
+---
+
+## 🏗️ Module-Based Architecture / Arquitetura Baseada em Módulos
+
+The application follows a **modular architecture**, organizing features into separate modules for better scalability and maintainability.
+A aplicação segue uma **arquitetura modular**, organizando funcionalidades em módulos separados para melhor escalabilidade e manutenção.
+
+---
+
+## 🔐 Authentication with JWT / Autenticação com JWT
+
+When logging in, a **JWT token** is generated, which is later used for authorization of protected routes.
+Ao logar, um **token JWT** é gerado e posteriormente utilizado para autorização de rotas protegidas.
+
+### Login Validation / Validação de Login
+
+- The system validates only if the provided **email exists** in the API:
+- O sistema valida apenas se o **e-mail informado existe** na API:
+
+  [https://jsonplaceholder.typicode.com/users/](https://jsonplaceholder.typicode.com/users/)
+
+- The password can be **anything**.
+- A senha pode ser **qualquer coisa**.
+
+### Why this approach? / Motivos para essa abordagem
+
+- Simplifies authentication for testing and development.
+- Keeps user validation minimal while focusing on JWT implementation.
+- Simplifica a autenticação para testes e desenvolvimento.
+- Mantém a validação do usuário mínima, focando na implementação do JWT.
+
+---
+
+## 🚀 Future Improvements / Melhorias Futuras
+
+✅ **Middleware for Authorization**
+
+- Create a middleware to handle authorization for all protected routes.
+- Criar um middleware para autorização de todas as rotas protegidas.
+
+✅ **Better Exception Handling**
+
+- Implement a more robust way to handle exceptions.
+- Implementar uma forma mais eficiente de tratar exceções.

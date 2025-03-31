@@ -42,7 +42,7 @@ describe('PhotosService', () => {
     userService = module.get<IUserService>('IUserService');
   });
 
-  it('deve lançar UnauthorizedException se a foto não pertencer ao usuário', async () => {
+  it('It should throw an UnauthorizedException if the photo does not belong to the user.', async () => {
     const photoId = 2;
     const reqPhotoId = 1;
     (authService.decodeToken as jest.Mock).mockReturnValue({ userId: 1 });
@@ -55,7 +55,7 @@ describe('PhotosService', () => {
     ).rejects.toThrow(UnauthorizedException);
   });
 
-  it('deve chamar o repositório para deletar a foto se o usuário tiver permissão', async () => {
+  it('It should call the repository to delete the photo if the user has permission.', async () => {
     const photoId = 1;
     const reqPhotoId = 2;
 

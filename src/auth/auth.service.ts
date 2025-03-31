@@ -22,13 +22,13 @@ export class AuthServiceImpl implements IAuthService {
     const { email, password } = login;
 
     if (!email || !password) {
-      throw new BadRequestException('Email e senha são obrigatórios');
+      throw new BadRequestException('Email and password are required.');
     }
     const data = await this.authRepository.findAll();
     const user = data.find((x) => x.email == email);
 
     if (!user) {
-      throw new NotFoundException('Usuário não encontrado');
+      throw new NotFoundException('User not found');
     }
 
     return this.generateToken(user.id, user.email, user.name);
@@ -38,7 +38,7 @@ export class AuthServiceImpl implements IAuthService {
     try {
       return this.jwtService.decode(token);
     } catch (error) {
-      throw new Error('Erro ao decodificar o token');
+      throw new Error('Error decoding the token.');
     }
   }
 

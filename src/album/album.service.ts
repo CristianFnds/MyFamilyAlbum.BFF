@@ -27,7 +27,7 @@ export class AlbumServiceImpl implements IAlbumService {
 
     if (!albumExists) {
       throw new UnauthorizedException(
-        'Album não encontrada ou não pertence ao usuário',
+        'Album not found or does not belong to the user',
       );
     }
 

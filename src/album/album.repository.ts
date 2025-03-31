@@ -39,7 +39,7 @@ export class AlbumRepositoryImpl implements IAlbumRepository {
       this.httpService.delete(`${this.baseUrl}/albums/${id}`),
     );
     if (response.status !== 200) {
-      throw new Error(`Erro ao excluir foto: ${response.statusText}`);
+      throw new Error(`Error deleting photo: ${response.statusText}`);
     }
     return;
   }
