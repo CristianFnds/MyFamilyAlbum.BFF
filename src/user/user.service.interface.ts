@@ -1,6 +1,6 @@
 export interface IUserService {
-  getAlbumByUserId(userId: string);
-  getPhotosByUserId(id: string);
-  getUserByID(id: string);
+  getAlbumByUserId(userId: number);
+  getPhotosByUserId(id: number);
+  getUserByID(id: number);
   getAll();
 }

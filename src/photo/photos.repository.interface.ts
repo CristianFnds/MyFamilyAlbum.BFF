@@ -1,3 +1,3 @@
 export interface IPhotosRepository {
-  delete(id: string): Promise<void>;
+  delete(id: number): Promise<void>;
 }

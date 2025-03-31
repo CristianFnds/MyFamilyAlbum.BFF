@@ -29,12 +29,12 @@ export class UserController {
   }
 
   @Get(':userId/albums')
-  async getAlbumByUserId(@Param('userId') userId: string) {
+  async getAlbumByUserId(@Param('userId') userId: number) {
     return this.userService.getAlbumByUserId(userId);
   }
 
   @Get(':userId')
-  async get(@Param('userId') userId: string) {
+  async get(@Param('userId') userId: number) {
     return this.userService.getUserByID(userId);
   }
 }

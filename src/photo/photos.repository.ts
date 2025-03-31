@@ -16,7 +16,7 @@ export class PhotosRepositoryImpl implements IPhotosRepository {
       this.configService.get<string>('BASE_URL') || 'https://default.url';
   }
 
-  async delete(id: string): Promise<void> {
+  async delete(id: number): Promise<void> {
     const response = await lastValueFrom(
       this.httpService.delete(`${this.baseUrl}/photos/${id}`),
     );

@@ -1,6 +1,6 @@
 import { Album } from './album.entity';
 
 export interface IAlbumRepository {
-  getAllPhotosByAlbumID(albumId: string): Promise<Album[]>;
-  delete(albumId: string): Promise<void>;
+  getAllPhotosByAlbumID(albumId: number): Promise<Album[]>;
+  delete(albumId: number): Promise<void>;
 }

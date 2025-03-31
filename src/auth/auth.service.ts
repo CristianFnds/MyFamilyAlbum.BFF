@@ -21,7 +21,6 @@ export class AuthServiceImpl implements IAuthService {
   async login(login: LoginDto) {
     const { email, password } = login;
 
-    console.log('validação ');
     if (!email || !password) {
       throw new BadRequestException('Email e senha são obrigatórios');
     }

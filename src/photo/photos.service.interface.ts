@@ -1,3 +1,3 @@
 export interface IPhotosService {
-  deletePhoto(id: string, authHeader: string): Promise<void>;
+  deletePhoto(id: number, authHeader: string): Promise<void>;
 }

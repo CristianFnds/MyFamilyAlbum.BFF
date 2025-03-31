@@ -17,7 +17,7 @@ export class AlbumRepositoryImpl implements IAlbumRepository {
       this.configService.get<string>('BASE_URL') || 'https://default.url';
   }
 
-  async getAllPhotosByAlbumID(albumId: string): Promise<Photo[]> {
+  async getAllPhotosByAlbumID(albumId: number): Promise<Photo[]> {
     const response = await lastValueFrom(
       this.httpService.get(`${this.baseUrl}/album/${albumId}/photos`),
     );
@@ -34,7 +34,7 @@ export class AlbumRepositoryImpl implements IAlbumRepository {
     );
   }
 
-  async delete(id: string): Promise<void> {
+  async delete(id: number): Promise<void> {
     const response = await lastValueFrom(
       this.httpService.delete(`${this.baseUrl}/albums/${id}`),
     );

@@ -14,18 +14,18 @@ export class UserServiceImpl implements IUserService {
     return await this.userRepository.getAll();
   }
 
-  async getAlbumByUserId(userID: string) {
+  async getAlbumByUserId(userID: number) {
     return await this.userRepository.getAlbumByUserId(userID);
   }
 
-  async getUserByID(id: string) {
+  async getUserByID(id: number) {
     return await this.userRepository.getUserByID(id);
   }
 
-  async getPhotosByUserId(id: string) {
+  async getPhotosByUserId(id: number) {
     const albuns = await this.userRepository.getAlbumByUserId(id);
     const photosPromises = albuns.map((album) =>
-      this.albumService.getAllPhotosByAlbumID(album.id.toString()),
+      this.albumService.getAllPhotosByAlbumID(album.id),
     );
     const allPhotos = await Promise.all(photosPromises);
     return allPhotos.flat();

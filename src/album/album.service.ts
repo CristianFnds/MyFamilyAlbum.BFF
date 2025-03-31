@@ -13,17 +13,15 @@ export class AlbumServiceImpl implements IAlbumService {
     @Inject('IUserService') private readonly userService: IUserService,
   ) {}
 
-  async getAllPhotosByAlbumID(albumId: string) {
+  async getAllPhotosByAlbumID(albumId: number) {
     return await this.albumRepository.getAllPhotosByAlbumID(albumId);
   }
 
-  async deleteAlbum(id: string, authHeader: string) {
+  async deleteAlbum(id: number, authHeader: string) {
     const token = authHeader.replace('Bearer ', '');
     const user = this.authService.decodeToken(token);
 
-    const albums = await this.userService.getAlbumByUserId(
-      user.userId.toString(),
-    );
+    const albums = await this.userService.getAlbumByUserId(user.userId);
 
     const albumExists = albums.some((album) => album.id == id);
 

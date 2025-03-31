@@ -4,7 +4,7 @@ import { User } from './user.entity';
 
 export interface IUserRepository {
   getAll(): Promise<User[]>;
-  getUserByID(id: string): Promise<User>;
-  getPhotosByUserId(id: string): Promise<Photo[]>;
-  getAlbumByUserId(id: string): Promise<Album[]>;
+  getUserByID(id: number): Promise<User>;
+  getPhotosByUserId(id: number): Promise<Photo[]>;
+  getAlbumByUserId(id: number): Promise<Album[]>;
 }

@@ -39,7 +39,7 @@ export class UserRepositoryImpl implements IUserRepository {
     );
   }
 
-  async getAlbumByUserId(id: string): Promise<Album[]> {
+  async getAlbumByUserId(id: number): Promise<Album[]> {
     const response = await lastValueFrom(
       this.httpService.get(`${this.baseUrl}/users/${id}/albums`),
     );
@@ -49,7 +49,7 @@ export class UserRepositoryImpl implements IUserRepository {
     );
   }
 
-  async getUserByID(id: string): Promise<User> {
+  async getUserByID(id: number): Promise<User> {
     const response = await lastValueFrom(
       this.httpService.get(`${this.baseUrl}/users/${id}`),
     );
@@ -65,7 +65,7 @@ export class UserRepositoryImpl implements IUserRepository {
     );
   }
 
-  async getPhotosByUserId(id: string): Promise<Photo[]> {
+  async getPhotosByUserId(id: number): Promise<Photo[]> {
     const response = await lastValueFrom(
       this.httpService.get(`${this.baseUrl}/users/${id}/photos`),
     );

@@ -13,13 +13,11 @@ export class PhotosService implements IPhotosService {
     @Inject('IUserService') private readonly userService: IUserService,
   ) {}
 
-  async deletePhoto(id: string, authHeader: string) {
+  async deletePhoto(id: number, authHeader: string) {
     const token = authHeader.replace('Bearer ', '');
     const user = this.authService.decodeToken(token);
 
-    const photosUser = await this.userService.getPhotosByUserId(
-      user.userId.toString(),
-    );
+    const photosUser = await this.userService.getPhotosByUserId(user.userId);
 
     const photoExists = photosUser.some((photo) => photo.id == id);
 

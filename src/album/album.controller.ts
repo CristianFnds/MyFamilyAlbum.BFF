@@ -16,14 +16,13 @@ export class AlbumController {
   ) {}
 
   @Get(':albumId/photos')
-  async getAllPhotosByAlbumID(@Param('albumId') albumId: string) {
-    console.log(albumId);
+  async getAllPhotosByAlbumID(@Param('albumId') albumId: number) {
     return this.albumService.getAllPhotosByAlbumID(albumId);
   }
 
   @Delete(':albumId')
   async deletePhoto(
-    @Param('albumId') albumId: string,
+    @Param('albumId') albumId: number,
     @Req() request: Request,
   ) {
     const authHeader = request.headers['authorization'];
