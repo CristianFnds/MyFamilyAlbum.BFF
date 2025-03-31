@@ -5,7 +5,7 @@ import { AuthModule } from 'src/auth/auth.module';
 import { UserModule } from 'src/user/user.module';
 import { PhotosController } from './photos.controller';
 import { PhotosRepositoryImpl } from './photos.repository';
-import { PhotosService } from './photos.service';
+import { PhotosServiceImpl } from './photos.service';
 
 @Module({
   imports: [HttpModule, ConfigModule, AuthModule, UserModule],
@@ -13,7 +13,7 @@ import { PhotosService } from './photos.service';
   providers: [
     {
       provide: 'IPhotosService',
-      useClass: PhotosService,
+      useClass: PhotosServiceImpl,
     },
     {
       provide: 'IPhotosRepository',

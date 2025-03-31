@@ -5,7 +5,7 @@ import { IPhotosService } from 'src/photo/photos.service.interface';
 import { IUserService } from 'src/user/user.service.interface';
 
 @Injectable()
-export class PhotosService implements IPhotosService {
+export class PhotosServiceImpl implements IPhotosService {
   constructor(
     @Inject('IPhotosRepository')
     private readonly photosRepository: IPhotosRepository,
