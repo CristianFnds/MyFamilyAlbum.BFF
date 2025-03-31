@@ -2,11 +2,11 @@ import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { lastValueFrom } from 'rxjs';
-import { Photo } from './photo.entity';
-import { IPhotosRepository } from './photos.repository.interface';
+import { Photo } from 'src/photo/photo.entity';
+import { IAlbumRepository } from './album.repository.interface';
 
 @Injectable()
-export class PhotosRepositoryImpl implements IPhotosRepository {
+export class AlbumRepositoryImpl implements IAlbumRepository {
   private baseUrl: string;
 
   constructor(
@@ -17,9 +17,9 @@ export class PhotosRepositoryImpl implements IPhotosRepository {
       this.configService.get<string>('BASE_URL') || 'https://default.url';
   }
 
-  async findAll(): Promise<Photo[]> {
+  async getAllPhotosByAlbumID(albumId: string): Promise<Photo[]> {
     const response = await lastValueFrom(
-      this.httpService.get(`${this.baseUrl}/photos`),
+      this.httpService.get(`${this.baseUrl}/album/${albumId}/photos`),
     );
 
     return response.data.map(
@@ -34,21 +34,13 @@ export class PhotosRepositoryImpl implements IPhotosRepository {
     );
   }
 
-  async findOne(id: number): Promise<Photo | null> {
+  async delete(id: string): Promise<void> {
     const response = await lastValueFrom(
-      this.httpService.get(`${this.baseUrl}/photos/${id}`),
+      this.httpService.delete(`${this.baseUrl}/albums/${id}`),
     );
-
-    const photo = response.data;
-
-    return photo
-      ? new Photo(
-          photo.id,
-          photo.albumId,
-          photo.title,
-          photo.url,
-          photo.thumbnailUrl,
-        )
-      : null;
+    if (response.status !== 200) {
+      throw new Error(`Erro ao excluir foto: ${response.statusText}`);
+    }
+    return;
   }
 }

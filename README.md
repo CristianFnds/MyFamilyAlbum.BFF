@@ -107,4 +107,13 @@ configurar o vs code com :
 }
 
 Arquitetura Baseada em Módulos
+foi feito umaimplementação utilizado no jwt para ao logar relaizar o geração do token pára validar permissões do usuario posteriormente.
+
+na tela de login possui validação apenas para achar o email valido que consta na api https://jsonplaceholder.typicode.com/users/
+a senha poder ser qualquer coisa.
+
 descrever motivos
+
+Melhorias criar um middleware para authorization para todas pegar todas as rotas privadas.
+
+criar uma forma melhor de tratar as exceptions

@@ -3,8 +3,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthController } from 'src/auth/auth.controller';
-import { AuthService } from 'src/auth/auth.service';
-import { UserModule } from 'src/user/user.module';
+import { AuthRepositoryImpl } from './auth.repository';
+import { AuthServiceImpl } from './auth.service';
 
 @Module({
   imports: [
@@ -20,14 +20,18 @@ import { UserModule } from 'src/user/user.module';
       }),
     }),
     HttpModule,
-    UserModule,
   ],
   controllers: [AuthController],
   providers: [
     {
       provide: 'IAuthService',
-      useClass: AuthService,
+      useClass: AuthServiceImpl,
+    },
+    {
+      provide: 'IAuthRepository',
+      useClass: AuthRepositoryImpl,
     },
   ],
+  exports: ['IAuthService'],
 })
 export class AuthModule {}

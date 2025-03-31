@@ -6,25 +6,26 @@ import {
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { IAuthService } from 'src/auth/auth.service.interface';
-import { IUserRepository } from 'src/user/users.repository.interface';
+import { IAuthRepository } from './auth.repository.interface';
 import { LoginDto } from './dto/login.dto';
+import { JwtPayload } from './interfaces/jwt/jwt.payload.class';
 
 @Injectable()
-export class AuthService implements IAuthService {
+export class AuthServiceImpl implements IAuthService {
   constructor(
-    @Inject('IUserRepository')
-    private readonly userRepository: IUserRepository,
+    @Inject('IAuthRepository')
+    private readonly authRepository: IAuthRepository,
     private readonly jwtService: JwtService,
   ) {}
 
   async login(login: LoginDto) {
     const { email, password } = login;
 
+    console.log('validação ');
     if (!email || !password) {
       throw new BadRequestException('Email e senha são obrigatórios');
     }
-
-    const data = await this.userRepository.findAll();
+    const data = await this.authRepository.findAll();
     const user = data.find((x) => x.email == email);
 
     if (!user) {
@@ -32,6 +33,14 @@ export class AuthService implements IAuthService {
     }
 
     return this.generateToken(user.id, user.email, user.name);
+  }
+
+  decodeToken(token: string): JwtPayload {
+    try {
+      return this.jwtService.decode(token);
+    } catch (error) {
+      throw new Error('Erro ao decodificar o token');
+    }
   }
 
   private async generateToken(userId: number, email: string, name: string) {
